@@ -1,0 +1,37 @@
+ [{
+         "id": 1,
+         "Name": "Birla House",
+         "Type": "House",
+         "Price": 2000
+     },
+     {
+         "id": 2,
+         "Name": "Erose Villa",
+         "Type": "House",
+         "Price": 8000
+     },
+     {
+         "id": 3,
+         "Name": "Nice Villa",
+         "Type": "House",
+         "Price": 9000
+     },
+     {
+         "id": 4,
+         "Name": "Birla House",
+         "Type": "House",
+         "Price": 2000
+     },
+     {
+         "id": 5,
+         "Name": "Erose Villa",
+         "Type": "House",
+         "Price": 8000
+     },
+     {
+         "id": 6,
+         "Name": "Nice Villa",
+         "Type": "House",
+         "Price": 9000
+     }
+ ]

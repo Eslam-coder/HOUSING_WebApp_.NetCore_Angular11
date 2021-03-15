@@ -1,0 +1,30 @@
+.Image {
+    width: 700px;
+    height: 500px;
+}
+
+.center {
+    margin: 0;
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.responsive {
+    max-width: 100%;
+    height: auto;
+}
+
+.btn-warning:hover {
+    color: #ffe227;
+    background-color: #212529;
+    border-color: #ffe227;
+}
+
+.btn-warning {
+    color: #212529;
+    background-color: #ffe227;
+    border-color: #ffe227;
+}

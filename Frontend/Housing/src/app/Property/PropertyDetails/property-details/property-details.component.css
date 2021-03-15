@@ -1,0 +1,59 @@
+.card:hover img {
+    transform: scale(1.2, 1.2);
+    transition-duration: 500ms;
+    transition-timing-function: ease-out;
+    opacity: 0.8;
+}
+
+.img-wrapper {
+    overflow: hidden;
+    position: relative;
+}
+
+.ngx-gallery {
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+.btn-warning {
+    color: #212529;
+    background-color: #ffe227;
+    border-color: #ffe227;
+    font-weight: 400;
+}
+
+.btn-warning:hover {
+    color: #ffe227;
+    background-color: #212529;
+    border-color: #ffe227;
+    font-weight: 400;
+}
+
+.btn-warning:focus,
+.btn-warning.focus {
+    color: #212529;
+    background-color: #ffe227;
+    border-color: #ffe227;
+    box-shadow: 0 0 0 0.2rem rgba(222, 170, 12, 0.5);
+}
+
+.btn-warning.disabled,
+.btn-warning:disabled {
+    color: #212529;
+    background-color: #ffe227;
+    border-color: #ffe227;
+}
+
+.btn-warning:not(:disabled):not(.disabled):active,
+.btn-warning:not(:disabled):not(.disabled).active,
+.show>.btn-warning.dropdown-toggle {
+    color: #212529;
+    background-color: #ffe227;
+    border-color: #ffe227;
+}
+
+.btn-warning:not(:disabled):not(.disabled):active:focus,
+.btn-warning:not(:disabled):not(.disabled).active:focus,
+.show>.btn-warning.dropdown-toggle:focus {
+    box-shadow: 0 0 0 0.2rem rgba(222, 170, 12, 0.5);
+}

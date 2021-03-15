@@ -1,0 +1,473 @@
+<br>
+<div class="container">
+    <div class="row">
+        <div class="col-8">
+            <div class="d-flex justify-content-center">
+                <div class="card" style="width:42rem;">
+                    <div class="card-header">
+                        Add New Property
+                    </div>
+                    <br>
+                    <div class="container">
+                        <div class="body">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <tabset #formTabs>
+            <tab heading="Basic Info">
+                <br>
+                <div class="form-group">
+                    <p>I want :</p>
+                    <div class="btn-group" btnRadioGroup>
+                        <label class="btn btn-outline-warning RadioBtn" btnRadio=1 tabindex="0" role="button" name="SellRent" style="margin-right: 3px;">Sell</label>
+                        <label class="btn btn-outline-warning RadioBtn" btnRadio=2 tabindex="0" role="button" name="SellRent">Rent</label>
+                    </div>
+                </div>
+                <br>
+                <div class="form-group">
+                    <label for="Name">Name</label>
+                    <input type="text" name="Name" id="Name" class="form-control" formControlName="Name">
+                </div>
+                <br>
+                <div class="form-group">
+                    <p>Property Type</p>
+                    <div class="btn-group" btnRadioGroup formControlName="HouseeType">
+                        <label class="btn btn-outline-warning RadioBtn" *ngFor="let item of propertyType" [btnRadio]="item" tabindex="0" role="button" name="PropertType" style="margin-right: 3px;">{{item}}</label>
+                    </div>
+                </div>
+                <br>
+                <div class="form-group">
+                    <p>furnishing Type</p>
+                    <div class="btn-group" btnRadioGroup formControlName="Furnishing" name="Furnishing">
+                        <label class="btn btn-outline-warning RadioBtn" *ngFor="let item of furnishingType" [btnRadio]="item" tabindex="0" role="button" name="PropertType" style="margin-right: 3px;">{{item}}</label>
+                    </div>
+                </div>
+                <br>
+                <div class="form-group">
+                    <label for="city">City</label>
+                    <input type="text" name="city" id="city" class="form-control">
+                </div>
+                <br>
+                <div class="form-group col-md-12">
+                    <button type="button" class="btn btn-warning btn-block" style="width: 100%;" (click)="selectTab(1)">Next</button>
+                </div>
+                <br>
+            </tab>
+            <tab heading="Pricing and Area">
+                <br>
+                <div class="form-group">
+                    <label for="Price">Price (in EGP)</label>
+                    <input type="number" name="Price" class="form-control" id="Price" formControlName="Price">
+                </div>
+                <br>
+                <div class="form-group">
+                    <label for="security">Security (in EGP)</label>
+                    <input type="number" name="Security" class="form-control" id="security" formControlName="Security">
+                </div>
+                <br>
+                <div class="form-group">
+                    <label for="BuiltArea">Built Area(in m2)</label>
+                    <input type="number" name="BuiltArea" class="form-control" id="BuiltArea" formControlName="BuiltArea">
+                </div>
+                <br>
+                <div class="form-group col-md-12">
+                    <button type="button" class="btn btn-warning btn-block" style="width: 100%;" (click)="selectTab(0)">Back</button>
+                </div>
+                <br>
+                <div class="form-group col-md-12">
+                    <button type="button" class="btn btn-warning btn-block" style="width: 100%;" (click)="selectTab(2)">Next</button>
+                </div>
+            </tab>
+            <!--<tab heading="Address">
+                <br>
+                <div class="form-group">
+                    <label for="floor">Floor</label>
+                    <input type="text" class="form-control" name="floor" id="floor">
+                </div>
+                <br>
+                <div class="form-group">
+                    <label for="totalFloor">Total Floor</label>
+                    <input type="text" class="form-control" name="totalFloor" id="totalFloor">
+                </div>
+                <br>
+                <div class="form-group">
+                    <label for="address">Address</label>
+                    <input type="text" class="form-control" name="Address" id="address" formControlName="Address">
+                </div>
+                <br>
+                <div class="form-group col-md-12">
+                    <button type="button" class="btn btn-warning btn-block" style="width: 100%;" (click)="selectTab(1)">Back</button>
+                </div>
+                <br>
+                <div class="form-group col-md-12">
+                    <button type="button" class="btn btn-warning btn-block" style="width: 100%;" (click)="selectTab(3)">Next</button>
+                </div>
+                <br>
+            </tab>-->
+            <tab heading="Other Details">
+                <br>
+                <div class="form-group col-md-6">
+                    <label for="birthday">Possession Date</label>
+                    <input type="text" class="form-control" placeholder="Choose Date" name="PossesionDate" formControlName="PossesionDate" bsDatepicker [bsConfig]="{containerClass:'theme-dark-blue',dateInputFormat:'DD-MM-YYY'}">
+                </div>
+                <br>
+                <div class="form-group">
+                    <label for="AgeofProperty">Age of Property</label>
+                    <input type="number" class="form-control" name="HouseeAge" id="AgeofProperty" formControlName="HouseeAge">
+                </div>
+                <br>
+                <div class="form-group">
+                    <label for="Description">Description</label>
+                    <textarea type="text" class="form-control" rows="6" name="Description" formControlName="Description" id="Description"></textarea>
+                </div>
+                <br>
+                <div class="form-group col-md-12 d-flex justify-content-center">
+                    <button type="button" style="width: 100%;" class="btn btn-warning btn-block" (click)="selectTab(2)">Back</button>
+                </div>
+                <br>
+                <div class="form-group col-md-12 d-flex justify-content-center">
+                    <button type="button" style="width: 100%;" class="btn btn-warning btn-block" (click)="selectTab(4)">Next</button>
+                </div>
+                <br>
+            </tab>
+            <tab heading="Upload Photos">
+                <br>
+                <div class="form-group">
+                    <div class="photo-control">
+                         <label class="control-label custom-file-label">Choose Image .....</label>
+                        <!--Mahmoud and ekram-->
+                        <!-- <input type="hidden" formControlName="File" />
+                        <input type="file" (change)="onFileSelect($event)" class="form-control"> -->
+                        <!--My Idea-->
+                        <!-- <input type="hidden" formControlName="Image" />
+                        <input type="file"  class="form-control"> -->
+                        <!--Abdo Hesham-->
+                        <!-- <input type="hidden" formControlName="Image" />
+                        <input type="file" (change)="fileChange($event)" class="form-control">-->
+                        <!--Trial-->
+                        <app-upload-image (onUploadFinished)="uploadFinished($event)"></app-upload-image>
+                    </div>
+                </div>
+                <div class="form-group col-md-12 d-flex justify-content-center">
+                    <button type="button" class="btn btn-warning btn-block" style="width: 100%;" (click)="selectTab(3)">Back</button>
+                </div>
+                <br>
+                <div class="form-group col-md-12 d-flex justify-content-center">
+                    <button type="submit" style="width: 100%;" class="btn btn-warning">Save</button>
+                </div>
+            </tab>
+        </tabset>
+    </form>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="col-4">
+            <div class="card-header" style="padding:2px;">
+                <h5>Property Preview</h5>
+            </div>
+            <br>
+            <div class="card-body">
+                <span>{{this.form.get('Image').value}}</span>
+                <h5>Name: <span style="color:#D4AC0D;">{{this.form.get('Name').value}}</span></h5>
+                <hr>
+                <h6>Type: <span style="color: #D4AC0D;">{{this.form.get('HouseeType').value}}</span></h6>
+                <h6>Furnishing Type: <span style="color: #D4AC0D;">{{this.form.get('Furnishing').value}}</span></h6>
+                <h6><span>Price: <span style="color: #D4AC0D;">{{this.form.get('Price').value|currency:'EGP ' }}</span></span><span> | Area: <span style="color: #D4AC0D;">{{this.form.get('BuiltArea').value}} </span>m2</span></h6>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!--Template Driven Form-->
+<!-- <div class="body">
+    <form #f="ngForm" (submit)="onSubmit()">
+        <tabset #formTabs>
+            <tab heading="Basic Info">
+                <br>
+                <div class="form-group">
+                    <p>I want :</p>
+                    <div class="btn-group" btnRadioGroup>
+                        <label class="btn btn-outline-warning RadioBtn" btnRadio=1 tabindex="0" role="button" name="SellRent" style="margin-right: 3px;">Sell</label>
+                        <label class="btn btn-outline-warning RadioBtn" btnRadio=2 tabindex="0" role="button" name="SellRent">Rent</label>
+                    </div>
+                </div>
+                <br>
+                <div class="form-group">
+                    <label for="Name">Name</label>
+                    <input type="text" name="Name" id="Name" [(ngModel)]="Property.Housee.Name" class="form-control" required>
+                </div>
+                <br>
+                <div class="form-group">
+                    <p>Property Type</p>
+                    <div class="btn-group" btnRadioGroup [(ngModel)]="Property.Housee.HouseeType" name="HouseeType">
+                        <label class="btn btn-outline-warning RadioBtn" *ngFor="let item of propertyType" [btnRadio]="item" tabindex="0" role="button" name="PropertType" style="margin-right: 3px;">{{item}}</label>
+                    </div>
+                </div>
+                <br>
+                <div class="form-group">
+                    <p>furnishing Type</p>
+                    <div class="btn-group" btnRadioGroup [(ngModel)]="Property.Housee.Furnishing" name="Furnishing">
+                        <label class="btn btn-outline-warning RadioBtn" *ngFor="let item of furnishingType" [btnRadio]="item" tabindex="0" role="button" name="PropertType" style="margin-right: 3px;">{{item}}</label>
+                    </div>
+                </div>
+                <br>
+                <div class="form-group">
+                    <label for="city">City</label>
+                    <input type="text" name="city" id="city" class="form-control">
+                </div>
+                <br>
+                <div class="form-group col-md-12">
+                    <button type="button" class="btn btn-warning btn-block" style="width: 100%;" (click)="selectTab(1)">Next</button>
+                </div>
+                <br>
+            </tab>
+            <tab heading="Pricing and Area">
+                <br>
+                <div class="form-group">
+                    <label for="Price">Price (in EGP)</label>
+                    <input type="number" name="Price" id="Price" class="form-control" [(ngModel)]="Property.Housee.Price">
+                </div>
+                <br>
+                <div class="form-group">
+                    <label for="security">Security (in EGP)</label>
+                    <input type="number" name="Security" id="security" [(ngModel)]="Property.Housee.Security" class="form-control">
+                </div>
+                <br>
+                <div class="form-group">
+                    <label for="BuiltArea">Built Area(in m2)</label>
+                    <input type="number" name="BuiltArea" id="BuiltArea" class="form-control" [(ngModel)]="Property.Housee.BuiltArea">
+                </div>
+                <br>
+                <div class="form-group col-md-12">
+                    <button type="button" class="btn btn-warning btn-block" style="width: 100%;" (click)="selectTab(0)">Back</button>
+                </div>
+                <br>
+                <div class="form-group col-md-12">
+                    <button type="button" class="btn btn-warning btn-block" style="width: 100%;" (click)="selectTab(2)">Next</button>
+                </div>
+            </tab>
+            <tab heading="Address">
+                <br>
+                <div class="form-group">
+                    <label for="floor">Floor</label>
+                    <input type="text" name="floor" id="floor" class="form-control">
+                </div>
+                <br>
+                <div class="form-group">
+                    <label for="totalFloor">Total Floor</label>
+                    <input type="text" name="totalFloor" id="totalFloor" class="form-control">
+                </div>
+                <br>
+                <div class="form-group">
+                    <label for="address">Address</label>
+                    <input type="text" name="Address" id="address" [(ngModel)]="Property.Housee.Address" class="form-control">
+                </div>
+                <br>
+                <div class="form-group col-md-12">
+                    <button type="button" class="btn btn-warning btn-block" style="width: 100%;" (click)="selectTab(1)">Back</button>
+                </div>
+                <br>
+                <div class="form-group col-md-12">
+                    <button type="button" class="btn btn-warning btn-block" style="width: 100%;" (click)="selectTab(3)">Next</button>
+                </div>
+                <br>
+            </tab>
+            <tab heading="Other Details">
+                <br>
+                <div class="form-group col-md-6">
+                    <label for="birthday">Possession Date</label>
+                    <input type="text" placeholder="Choose Date" name="PossesionDate" [(ngModel)]="Property.Housee.PossesionDate" class="form-control" bsDatepicker [bsConfig]="{containerClass:'theme-dark-blue',dateInputFormat:'DD-MM-YYY'}">
+                </div>
+                <br>
+                <div class="form-group">
+                    <label for="AgeofProperty">Age of Property</label>
+                    <input type="number" name="HouseeAge" id="AgeofProperty" [(ngModel)]="Property.Housee.HouseeAge" class="form-control">
+                </div>
+                <br>
+                <div class="form-group">
+                    <label for="Description">Description</label>
+                    <textarea type="text" rows="6" name="Description" [(ngModel)]="Property.Housee.Description" id="Description" class="form-control"></textarea>
+                </div>
+                <br>
+                <div class="form-group col-md-12 d-flex justify-content-center">
+                    <button type="button" style="width: 100%;" class="btn btn-warning btn-block" (click)="selectTab(2)">Back</button>
+                </div>
+                <br>
+                <div class="form-group col-md-12 d-flex justify-content-center">
+                    <button type="button" style="width: 100%;" class="btn btn-warning btn-block" (click)="selectTab(4)">Next</button>
+                </div>
+                <br>
+            </tab>
+            <tab heading="Upload Photos">
+                <br>
+                <div class="form-group">
+                    <div class="photo-control">
+                        <label class="control-label custom-file-label">Choose Image .....</label>
+                        <input type="file" class="form-control custom-file-input" name="File" [(ngModel)]="Property.File">
+                        <button type="button" class=" mt-5 btn btn-dark">Upload</button>
+                    </div>
+                </div>
+                <div class="form-group col-md-12 d-flex justify-content-center">
+                    <button type="button" class="btn btn-warning btn-block" style="width: 100%;" (click)="selectTab(3)">Back</button>
+                </div>
+                <br>
+                <div class="form-group col-md-12 d-flex justify-content-center">
+                    <button type="submit" style="width: 100%;" class="btn btn-warning">Save</button>
+                </div>
+            </tab>
+        </tabset>
+    </form>
+</div> -->
+
+<!--Reactive form-->
+<!--<div class="body">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <tabset #formTabs>
+            <tab heading="Basic Info">
+                <br>
+                <div class="form-group">
+                    <p>I want :</p>
+                    <div class="btn-group" btnRadioGroup>
+                        <label class="btn btn-outline-warning RadioBtn" btnRadio=1 tabindex="0" role="button" name="SellRent" style="margin-right: 3px;">Sell</label>
+                        <label class="btn btn-outline-warning RadioBtn" btnRadio=2 tabindex="0" role="button" name="SellRent">Rent</label>
+                    </div>
+                </div>
+                <br>
+                <div class="form-group">
+                    <label for="Name">Name</label>
+                    <input type="text" name="Name" id="Name" class="form-control" formControlName="Name">
+                </div>
+                <br>
+                <div class="form-group">
+                    <p>Property Type</p>
+                    <div class="btn-group" btnRadioGroup formControlName="HouseeType">
+                        <label class="btn btn-outline-warning RadioBtn" *ngFor="let item of propertyType" [btnRadio]="item" tabindex="0" role="button" name="PropertType" style="margin-right: 3px;">{{item}}</label>
+                    </div>
+                </div>
+                <br>
+                <div class="form-group">
+                    <p>furnishing Type</p>
+                    <div class="btn-group" btnRadioGroup formControlName="Furnishing" name="Furnishing">
+                        <label class="btn btn-outline-warning RadioBtn" *ngFor="let item of furnishingType" [btnRadio]="item" tabindex="0" role="button" name="PropertType" style="margin-right: 3px;">{{item}}</label>
+                    </div>
+                </div>
+                <br>
+                <div class="form-group">
+                    <label for="city">City</label>
+                    <input type="text" name="city" id="city" class="form-control">
+                </div>
+                <br>
+                <div class="form-group col-md-12">
+                    <button type="button" class="btn btn-warning btn-block" style="width: 100%;" (click)="selectTab(1)">Next</button>
+                </div>
+                <br>
+            </tab>
+            <tab heading="Pricing and Area">
+                <br>
+                <div class="form-group">
+                    <label for="Price">Price (in EGP)</label>
+                    <input type="number" name="Price" class="form-control" id="Price" formControlName="Price">
+                </div>
+                <br>
+                <div class="form-group">
+                    <label for="security">Security (in EGP)</label>
+                    <input type="number" name="Security" class="form-control" id="security" formControlName="Security">
+                </div>
+                <br>
+                <div class="form-group">
+                    <label for="BuiltArea">Built Area(in m2)</label>
+                    <input type="number" name="BuiltArea" class="form-control" id="BuiltArea" formControlName="BuiltArea">
+                </div>
+                <br>
+                <div class="form-group col-md-12">
+                    <button type="button" class="btn btn-warning btn-block" style="width: 100%;" (click)="selectTab(0)">Back</button>
+                </div>
+                <br>
+                <div class="form-group col-md-12">
+                    <button type="button" class="btn btn-warning btn-block" style="width: 100%;" (click)="selectTab(2)">Next</button>
+                </div>
+            </tab>
+            <tab heading="Address">
+                <br>
+                <div class="form-group">
+                    <label for="floor">Floor</label>
+                    <input type="text" class="form-control" name="floor" id="floor">
+                </div>
+                <br>
+                <div class="form-group">
+                    <label for="totalFloor">Total Floor</label>
+                    <input type="text" class="form-control" name="totalFloor" id="totalFloor">
+                </div>
+                <br>
+                <div class="form-group">
+                    <label for="address">Address</label>
+                    <input type="text" class="form-control" name="Address" id="address" formControlName="Address">
+                </div>
+                <br>
+                <div class="form-group col-md-12">
+                    <button type="button" class="btn btn-warning btn-block" style="width: 100%;" (click)="selectTab(1)">Back</button>
+                </div>
+                <br>
+                <div class="form-group col-md-12">
+                    <button type="button" class="btn btn-warning btn-block" style="width: 100%;" (click)="selectTab(3)">Next</button>
+                </div>
+                <br>
+            </tab>
+            <tab heading="Other Details">
+                <br>
+                <div class="form-group col-md-6">
+                    <label for="birthday">Possession Date</label>
+                    <input type="text" class="form-control" placeholder="Choose Date" name="PossesionDate" formControlName="PossesionDate" bsDatepicker [bsConfig]="{containerClass:'theme-dark-blue',dateInputFormat:'DD-MM-YYY'}">
+                </div>
+                <br>
+                <div class="form-group">
+                    <label for="AgeofProperty">Age of Property</label>
+                    <input type="number" class="form-control" name="HouseeAge" id="AgeofProperty" formControlName="HouseeAge">
+                </div>
+                <br>
+                <div class="form-group">
+                    <label for="Description">Description</label>
+                    <textarea type="text" class="form-control" rows="6" name="Description" formControlName="Description" id="Description"></textarea>
+                </div>
+                <br>
+                <div class="form-group col-md-12 d-flex justify-content-center">
+                    <button type="button" style="width: 100%;" class="btn btn-warning btn-block" (click)="selectTab(2)">Back</button>
+                </div>
+                <br>
+                <div class="form-group col-md-12 d-flex justify-content-center">
+                    <button type="button" style="width: 100%;" class="btn btn-warning btn-block" (click)="selectTab(4)">Next</button>
+                </div>
+                <br>
+            </tab>
+            <tab heading="Upload Photos">
+                <br>
+                <div class="form-group">
+                    <div class="photo-control">
+                         <label class="control-label custom-file-label">Choose Image .....</label> -->
+                        <!--Mahmoud and ekram-->
+                        <!-- <input type="hidden" formControlName="File" />
+                        <input type="file" (change)="onFileSelect($event)" class="form-control"> -->
+                        <!--My Idea-->
+                        <!-- <input type="hidden" formControlName="Image" />
+                        <input type="file"  class="form-control"> -->
+                        <!--Abdo Hesham-->
+                        <!-- <input type="hidden" formControlName="Image" />
+                        <input type="file" (change)="fileChange($event)" class="form-control"> 
+                        Trial
+                        <app-upload-image (onUploadFinished)="uploadFinished($event)"></app-upload-image>
+                    </div>
+                </div>
+                <div class="form-group col-md-12 d-flex justify-content-center">
+                    <button type="button" class="btn btn-warning btn-block" style="width: 100%;" (click)="selectTab(3)">Back</button>
+                </div>
+                <br>
+                <div class="form-group col-md-12 d-flex justify-content-center">
+                    <button type="submit" style="width: 100%;" class="btn btn-warning">Save</button>
+                </div>
+            </tab>
+        </tabset>
+    </form>
+</div>-->

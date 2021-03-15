@@ -1,0 +1,26 @@
+<br>
+<div class="container">
+    <button class="btn btn-warning" [routerLink]="['/CreateProperty']">Create new House</button>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>House Name</th>
+                <th>Image</th>
+                <th>House Typee</th>
+                <th>Furnishing</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of HouseList">
+                <td>{{item.name}}</td>
+                <td><img [src]="createImgPath(item.image)" style="width:70px;height:50px;"></td>
+                <td>{{item.houseeType}}</td>
+                <td>{{item.furnishing}}</td>
+                <td>{{item.price}}</td>
+                <td><button class="btn btn-warning" (click)="Delete(item.houseId)" tooltip="Remove" placement="top"><i class="fas fa-trash"></i></button></td>
+                <td><button class="btn btn-warning" routerLink="/House/{{item.houseId}}" tooltip="Edit" placement="top"><i class="fas fa-edit"></i></button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

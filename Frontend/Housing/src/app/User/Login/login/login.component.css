@@ -1,0 +1,57 @@
+.body {
+    background-image: url("/assets/Login/Login4.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-top: 0;
+    margin-bottom: 0;
+    height: 592px;
+}
+
+.title {
+    text-align: center;
+    color: #D4AC0D;
+    font-weight: bold;
+}
+
+.btn-warning {
+    color: #212529;
+    background-color: #ffe227;
+    border-color: #ffe227;
+    font-weight: 400;
+}
+
+.btn-warning:hover {
+    color: #ffe227;
+    background-color: #212529;
+    border-color: #ffe227;
+    font-weight: 400;
+}
+
+.btn-warning:focus,
+.btn-warning.focus {
+    color: #212529;
+    background-color: #ffe227;
+    border-color: #ffe227;
+    box-shadow: 0 0 0 0.2rem rgba(222, 170, 12, 0.5);
+}
+
+.btn-warning.disabled,
+.btn-warning:disabled {
+    color: #212529;
+    background-color: #ffe227;
+    border-color: #ffe227;
+}
+
+.btn-warning:not(:disabled):not(.disabled):active,
+.btn-warning:not(:disabled):not(.disabled).active,
+.show>.btn-warning.dropdown-toggle {
+    color: #212529;
+    background-color: #ffe227;
+    border-color: #ffe227;
+}
+
+.btn-warning:not(:disabled):not(.disabled):active:focus,
+.btn-warning:not(:disabled):not(.disabled).active:focus,
+.show>.btn-warning.dropdown-toggle:focus {
+    box-shadow: 0 0 0 0.2rem rgba(222, 170, 12, 0.5);
+}

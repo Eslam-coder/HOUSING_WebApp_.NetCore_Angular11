@@ -1,0 +1,26 @@
+<div class="container">
+    <br>
+    <div class="row">
+        <div class="shadow pt-2 pb-2 col-sm-3 borderCard" *ngFor="let House of HousesList">
+            <div class="card">
+                <div class="img-wrapper">
+                    <img [src]="createImgPath(House.image)" class="card-img-top Image " alt="Loading Image... ">
+                    <ul class="list-inline text-center member-icon animate">
+                        <li class="list-inline-item"><button class="btn btn-warning" routerLink="/Property-Details/{{House.houseId}}" tooltip="Show Details" placement="top"><i class="fas fa-clipboard-list"></i></button></li>
+                        <!-- <li class="list-inline-item"><button class="btn btn-warning" tooltip="Property Details." placement="top"><i class="fas fa-address-book"></i></button></li> -->
+                    </ul>
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title" style="color:#D4AC0D;">{{House.name}} {{House.houseeType}}</h3>
+                    <h4>in {{House.address}}</h4>
+                    <h5>{{House.furnishing}} Furnished</h5>
+                    <hr>
+                    <h6 class="price">Price:{{House.price}} EGP|Area:{{House.builtArea}} m2</h6>
+                    <!-- <p class="card-text ">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      <a href="# " class="btn btn-primary ">Go somewhere</a> -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+</div>

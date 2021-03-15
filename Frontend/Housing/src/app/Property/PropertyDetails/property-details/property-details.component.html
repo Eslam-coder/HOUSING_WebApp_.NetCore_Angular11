@@ -1,0 +1,135 @@
+<br>
+<div class="container">
+    <div class="row shadow ">
+        <div class="col-sm-4 p-0">
+            <div class="card">
+                <div class="img-wrapper">
+                    <img [src]="createImgPath(HouseById.image)" class="card-img-top Image " alt="Loading Image... ">
+                    <!-- <div class="card-image-wrapper Image">
+                    <img class="card-image-top" [src]="PropertyImage"> -->
+                </div>
+                <div class="card-body">
+                    <h1 class="card-title" style="color: #D4AC0D;">{{HouseById.name}}</h1>
+                    <div>
+                        <strong>{{HouseById.HouseeType}}</strong>
+                    </div>
+                    <div>
+                        <strong>in {{HouseById.address}}</strong>
+                        <hr>
+                    </div>
+                    <div>
+                        <strong>Area : {{HouseById.builtArea}} m2</strong>
+                    </div>
+                    <div>
+                        <strong>Furnshing Type : {{HouseById.furnishing}}</strong>
+                    </div>
+                    <!-- <div class="col-sm-6">
+                        <button class="btn btn-warning" (click)="SelectNextPage()">Next Page</button>
+                    </div> -->
+                    <br>
+                    <div>
+                        <button class="btn btn-success" (click)="Purchase(template,template2,HouseById.houseId)" style="width: 100%;">Purchase</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-8">
+            <div class="tab-panel">
+                <tabset class="member-tabset">
+                    <tab heading="overview">
+                        <h2>Overview</h2>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="heading">
+                                    <strong>House Name</strong>
+                                    <p>{{HouseById.name}}</p>
+                                </div>
+                                <div class="heading">
+                                    <strong>Floor Number</strong>
+                                    <p>5</p>
+                                </div>
+                                <div class="heading">
+                                    <strong>Age of Property</strong>
+                                    <p>{{HouseById.houseeAge}}</p>
+                                </div>
+                                <div class="heading">
+                                    <strong>Posession Date</strong>
+                                    <p>{{HouseById.PosessionDate}}</p>
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="heading">
+                                    <strong>About Property</strong>
+                                    <p>{{HouseById.description}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </tab>
+                    <tab heading="Address">
+                        <div class="col-sm-12">
+                            <h2>Address</h2>
+                            <div class="heading">
+                                <strong>{{HouseById.address}}</strong><br/>
+                                <!-- <strong>{{property.Address2}}</strong><br/> -->
+
+                            </div>
+                        </div>
+                    </tab>
+                    <tab heading="Photos">
+                        <ngx-gallery [options]="galleryOptions" [images]="galleryImages" class="ngx-gallery"></ngx-gallery>
+                    </tab>
+                    <tab heading="Contacts">
+                        <h2>Contact Detail</h2>
+                        Email : House@House.com
+                    </tab>
+                </tabset>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- <p>{{PropertyId}}</p>
+<button class="btn btn-primary" (click)="onBack()">Back</button>
+<br>
+<br>
+<button class="btn btn-primary" (click)="SelectNextPage()">Select Next Page</button> -->
+
+<!--Model To Login User-->
+<ng-template #template>
+    <div class="modal-header">
+        <!-- <h4 class="modal-title pull-left">Modal</h4> -->
+        <button type="button" class="btn-close" (click)="modalRef.hide()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+        <h3 style="color: #D4AC0D; text-align: center;">Login to continue</h3>
+        <br>
+        <div class="d-flex justify-content-center">
+            <a [routerLink]="['/Register']" style="color: black;" (click)="CloseModal()">Don't have an acount?Create account.</a>
+        </div>
+        <br>
+        <div class="d-flex justify-content-center">
+            <button class="btn btn-warning" [routerLink]="['/Login']" (click)="CloseModal()">OK</button>
+        </div>
+    </div>
+</ng-template>
+
+<!--Model To User Already Purchased-->
+<ng-template #template2>
+    <div class="modal-header">
+        <!-- <h4 class="modal-title pull-left">Modal</h4> -->
+        <button type="button" class="btn-close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    </div>
+    <div class="modal-body">
+        <div class="d-flex justify-content-center">
+            <img [src]="RightImage" style="width: 100px;height: 100px;">
+        </div>
+        <br>
+        <div class="d-flex justify-content-center">
+            <h4 style="color: #D4AC0D; text-align: center;">Reserved and Contact With You Soon.</h4>
+        </div>
+    </div>
+</ng-template>
